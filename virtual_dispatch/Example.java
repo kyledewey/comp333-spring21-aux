@@ -13,6 +13,15 @@ public class Example {
         // print it out
         destination.writeThing(intermediateResult);
     }
+
+    public static OutputDestination makeDestination(boolean userWantsConsole,
+                                                    String destinationFile) {
+        if (userWantsConsole) {
+            return new ConsoleDestination();
+        } else {
+            return new FileDestination(destinationFile);
+        }
+    }
     
     public static void main(String[] args) {
         // parsing command line arguments
@@ -20,11 +29,13 @@ public class Example {
         String destinationFile = getDestinationFile(args);
 
         // do some computation
-        OutputDestination destination = new OutputDestination(userWantsConsole,
-                                                              destinationFile);
+        OutputDestination destination = makeDestination(userWantsConsole,
+                                                        destinationFile);
         int result = doComputation(destination);
 
         // print it out
+        // virtual dispatch: runtime knows which method to call,
+        // when at compile time it could be different methods
         destination.writeThing(result);
 
         // close it
