@@ -4,30 +4,14 @@
 //   -If writing to a file, which file?
 //
 public class Example {
-    public static void writeThing(boolean userWantsConsole,
-                                  String destinationFile,
-                                  int thingToWrite) {
-        if (userWantsConsole) {
-            System.out.println(thingToWrite);
-        } else {
-            File file = new File(destinationFile);
-            FileOutputStream stream = new FileOutputStream(file);
-            stream.writeln(intermediateResult);
-            stream.close();
-        }
-    }
-    
-    public static void doComputation(boolean userWantsConsole,
-                                     String destinationFile) {
+    public static void doComputation(OutputDestination destination) {
         // does something
 
         int intermediateResult = ...;
         
         // print intermediate result
         // print it out
-        writeThing(userWantsConsole,
-                   destinationFile,
-                   intermediateResult);
+        destination.writeThing(intermediateResult);
     }
     
     public static void main(String[] args) {
@@ -36,12 +20,14 @@ public class Example {
         String destinationFile = getDestinationFile(args);
 
         // do some computation
-        int result = doComputation(userWantsConsole,
-                                   destinationFile);
+        OutputDestination destination = new OutputDestination(userWantsConsole,
+                                                              destinationFile);
+        int result = doComputation(destination);
 
         // print it out
-        writeThing(userWantsConsole,
-                   destinationFile,
-                   result);
+        destination.writeThing(result);
+
+        // close it
+        destination.close();
     }
 }
