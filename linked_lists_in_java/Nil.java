@@ -26,5 +26,12 @@ public class Nil implements ImmutableList {
     public int numSevens() {
         return 0;
     }
+
+    // [].addAmount(5) // this: [] (Nil)
+    public ImmutableList addAmount(int amount) {
+        //return new Nil(); // works, but not the best
+
+        return this;
+    }
 } // Nil
     

@@ -61,4 +61,28 @@ public class Cons implements ImmutableList {
             return numSevensInRest;
         }
     }
+
+    // [1, 2, 3].addAmount(4) // returns: [5, 6, 7]
+    public ImmutableList addAmount(int amount) {
+        // recursive case
+        // this: ImmutableList
+        // this.addAmount(...);
+        // addAmount(...);
+        // tail: ImmutableList ([2, 3])
+
+        // [2, 3].addAmount(4) // rest: [6, 7]
+        ImmutableList rest = tail.addAmount(amount);
+
+        // target return value: [5, 6, 7]
+        // amount: 4
+        // head: 1
+        int newValueHere = amount + head;
+
+        return new Cons(newValueHere, rest);
+    }
+
+    // shorter version
+    // public ImmutableList addAmount(int amount) {
+    //     return new Cons(amount + head, tail.addAmount(amount));
+    // }
 } // Cons

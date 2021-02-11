@@ -13,4 +13,9 @@ public interface ImmutableList {
     // [1, 2, 3].numSevens()       // 0
     // [7, 7, 7, 8].numSevens()    // 3
     public int numSevens();
+
+    // [].addAmount(1) // returns: []
+    // [0].addAmount(1) // returns: [1]
+    // [1, 2, 3].addAmount(4) // returns: [5, 6, 7]
+    public ImmutableList addAmount(int amount);
 } // ImmutableList
