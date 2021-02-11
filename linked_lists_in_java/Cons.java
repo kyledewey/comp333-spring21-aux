@@ -85,4 +85,7 @@ public class Cons implements ImmutableList {
     // public ImmutableList addAmount(int amount) {
     //     return new Cons(amount + head, tail.addAmount(amount));
     // }
+
+    public static int addFive(int x) { return x + 5; }
+    public static String addFive(String x) { return x + 5; }
 } // Cons
