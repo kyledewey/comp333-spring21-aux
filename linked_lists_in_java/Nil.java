@@ -33,5 +33,20 @@ public class Nil implements ImmutableList {
 
         return this;
     }
-} // Nil
+
+    // if (list is empty) {
+    //   do empty thing
+    // } else {
+    //   do non-empty thing
+    // }
     
+    // [].valuesGreaterThanAmount(0); // []
+    // [].valuesGreaterThanAmount(7); // []
+    // [].valuesGreaterThanAmount(2); // []
+    public ImmutableList valuesGreaterThanAmount(int amount) {
+        // [5] - new Cons(5, new Nil())
+        //return new Nil();
+        return this;
+    }
+} // Nil
+

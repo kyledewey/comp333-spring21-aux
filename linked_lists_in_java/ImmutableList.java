@@ -18,4 +18,11 @@ public interface ImmutableList {
     // [0].addAmount(1) // returns: [1]
     // [1, 2, 3].addAmount(4) // returns: [5, 6, 7]
     public ImmutableList addAmount(int amount);
+
+
+    // [3, 1, 4, 2].valuesGreaterThanAmount(2); // [3, 4]
+    // [3, 1, 4, 2].valuesGreaterThanAmount(5); // []
+    // [3, 1, 4, 2].valuesGreaterThanAmount(0); // [3, 1, 4, 2]
+    // [].valuesGreaterThanAmount(0);           // []
+    public ImmutableList valuesGreaterThanAmount(int amount);
 } // ImmutableList

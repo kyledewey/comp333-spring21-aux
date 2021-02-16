@@ -88,4 +88,28 @@ public class Cons implements ImmutableList {
 
     public static int addFive(int x) { return x + 5; }
     public static String addFive(String x) { return x + 5; }
+
+
+    // [3, 1, 4, 2].valuesGreaterThanAmount(2); // [3, 4]
+    // [3, 1, 4, 2].valuesGreaterThanAmount(5); // []
+    // [3, 1, 4, 2].valuesGreaterThanAmount(0); // [3, 1, 4, 2]
+    public ImmutableList valuesGreaterThanAmount(int amount) {
+        // this: Cons
+        // head: 3
+        // tail: [1, 4, 2]
+        // amount: 2
+
+        // rest: [4]
+        // return value: [3, 4]
+        ImmutableList rest = tail.valuesGreaterThanAmount(amount);
+        
+        if (head > amount) {
+            // do one thing
+            //ImmutableList newList = new Cons(3, rest); // [3, 4]
+            return new Cons(head, rest);
+        } else {
+            // do another thing
+            return rest;
+        }
+    }
 } // Cons
