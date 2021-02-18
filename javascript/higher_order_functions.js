@@ -10,20 +10,37 @@
 // callback: specific kind of higher-order function
 // arrow functions / arrow type: => / -> 
 //
-// function pointer
+// function pointer - C has these!
 //
+
+//let lessThanFive = function (x) { return x < 5; }
+function lessThanFive(x) {
+    return x < 5;
+}
 
 function printAllLessThanFive(array) {
     //printAllMatching(array, function (x) { return x < 5; })
-    printAllMatching(array, x => x < 5);
+    //printAllMatching(array, x => x < 5);
+    printAllMatching(array, lessThanFive);
+}
+
+function notFoobar(x) {
+    return x !== "foobar";
 }
 
 function printAllNotFoobar(array) {
-    printAllMatching(array, x => x !== "foobar");
+    //printAllMatching(array, x => x !== "foobar");
+    printAllMatching(array, notFoobar);
 }
 
+// function greaterThan(x, value) {
+//     return x > value;
+// }
+
 function printAllGreaterThan(array, value) {
+    // this function closes over `value`
     printAllMatching(array, x => x > value);
+    //printAllMatching(array, greaterThan, value);
 }
 
 // array: Array[Int]
