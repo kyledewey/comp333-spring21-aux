@@ -1,9 +1,11 @@
 public class Unlocked implements Lock {
-    public Unlocked() {}
+    public static final Unlocked UNLOCKED_STATE = new Unlocked();
+    
+    private Unlocked() {}
 
     public Lock lock() {
         System.out.println("lock locked");
-        return new Locked();
+        return Locked.LOCKED_STATE;
     }
     
     public Lock unlock() {
