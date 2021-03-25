@@ -39,3 +39,14 @@ func blah(y: Int) -> Int { return y }
 
 blah(x: 5)
 blah(y: 7)
+
+// in JavaScript:
+// let addFive = a => a + 5;
+// "in" (Swift) does the same thing as "=>" (JavaScript)
+//let addFive: (Int) -> Int = { a in a + 5 }
+
+let addFive = { a in a + 5 }
+print(addFive(2))
+
+let returnsParameter: (Int) -> Int = { a in a }
+print(returnsParameter(5))
