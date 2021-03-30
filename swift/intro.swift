@@ -45,8 +45,36 @@ blah(y: 7)
 // "in" (Swift) does the same thing as "=>" (JavaScript)
 //let addFive: (Int) -> Int = { a in a + 5 }
 
-let addFive = { a in a + 5 }
-print(addFive(2))
+//let addFive = { a in a + 5 }
+//print(addFive(2))
 
+// in JavaScript:
+// let returnsParameter = a => a
 let returnsParameter: (Int) -> Int = { a in a }
-print(returnsParameter(5))
+//print(returnsParameter(5))
+
+
+let b = false
+
+if b {
+    //print("hi")
+} else {
+    //print("bye")
+}
+
+// function addAmount(amount) {
+//   return x => x + amount
+// }
+
+func addAmount(amount: Int) -> (Int) -> Int {
+  // memory allocated:
+  // - space for an integer (amount)
+  // - space for a function pointer
+  return { x in amount + x }
+}
+
+let addFive: (Int) -> Int = addAmount(amount: 5)
+let addThree = addAmount(amount: 3)
+
+print(addFive(2))
+print(addThree(3))
