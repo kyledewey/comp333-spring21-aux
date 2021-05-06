@@ -38,6 +38,14 @@ likes(bob,pizza).
 likes(bob,burgers).
 likes(bob,salad).
 likes(bob,milk).
+likes(bill, Food):-
+    isWarm(Food).
+likes(janet, Food):-
+    likes(alice, Food),
+    likes(bob, Food).
+likes(yogurt, mel).
+likes(Food, mel) :-
+    likes(Food, janet).
 
 % inclusive range
 %% between5And10(5).
