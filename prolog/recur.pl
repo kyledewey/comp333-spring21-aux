@@ -29,3 +29,24 @@ fib(N, Result) :-
     fib(Temp1, Left),
     fib(Temp2, Right),
     Result is Left + Right.
+
+factorial(0, 1).
+factorial(N, Result) :-
+    N > 0,
+    Next is N - 1,
+    factorial(Next, Right),
+    Result is N * Right.
+
+% func append<A>(list1: List<A>, list2: List<A>) -> List<A> {
+%   switch list1 {
+%     case .cons(let head, let tail):
+%       return .cons(head, append(list1: tail, list2: list2))
+%     case .empty:
+%       return list2
+%   }
+% }
+
+% myAppend: InputList1, InputList2, OutputList
+myAppend(nil, List, List).
+myAppend(cons(Head, Tail), List, cons(Head, RestResult)) :-
+    myAppend(Tail, List, RestResult).
